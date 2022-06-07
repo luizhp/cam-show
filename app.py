@@ -9,8 +9,8 @@ from VideoStreamSubscriber import VideoStreamSubscriber
 import configparser
 config = configparser.ConfigParser()
 config.read('config/app.ini')
-HOSTNAME = config['PUBLISHER1']['HOSTNAME']
-PORT = int(config['PUBLISHER1']['PORT'])
+HOSTNAME = config['PUBLISHER']['HOSTNAME']
+PORT = int(config['PUBLISHER']['PORT'])
 
 if __name__ == "__main__":
     receiver = VideoStreamSubscriber(HOSTNAME, PORT)
