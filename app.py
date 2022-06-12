@@ -1,16 +1,15 @@
 import sys
 import numpy as np
 from time import sleep
+from Config import Config
 import traceback
 import cv2
 from imutils.video import VideoStream
 from VideoStreamSubscriber import VideoStreamSubscriber
 
-import configparser
-config = configparser.ConfigParser()
-config.read('config/app.ini')
-HOSTNAME = config['PUBLISHER']['HOSTNAME']
-PORT = int(config['PUBLISHER']['PORT'])
+config = Config()
+HOSTNAME = config.get('PUBLISHER', 'HOSTNAME')
+PORT = config.get('PUBLISHER', 'PORT')
 
 if __name__ == "__main__":
     receiver = VideoStreamSubscriber(HOSTNAME, PORT)
